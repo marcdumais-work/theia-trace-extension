@@ -1,0 +1,90 @@
+
+  warn no-orphans: packages/base/src/utils/value-hash.ts
+  warn no-orphans: packages/base/src/utils/convert-color-string-to-hex.ts
+  warn no-orphans: packages/base/src/message-manager.ts
+  warn no-circular: theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-widget.tsx → 
+      theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-sub-widgets/theia-trace-explorer-opened-traces-widget.tsx
+      →
+      theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx
+      →
+      theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-widget.tsx
+  warn no-circular: theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-contribution.ts → 
+      theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-widget.tsx
+      →
+      theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-sub-widgets/theia-trace-explorer-opened-traces-widget.tsx
+      →
+      theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx
+      →
+      theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-contribution.ts
+  warn no-circular: packages/react-components/src/components/utils/time-range-data-map.ts → 
+      packages/react-components/src/trace-explorer/trace-explorer-time-range-data-widget.tsx
+      →
+      packages/react-components/src/components/utils/time-range-data-map.ts
+  warn no-circular: packages/react-components/src/components/abstract-output-component.tsx → 
+      packages/react-components/src/components/drop-down-component.tsx →
+      packages/react-components/src/components/abstract-output-component.tsx
+  error not-to-dev-dep: packages/react-components/src/components/utils/filter-tree/__tests__/table-row.test.tsx → node_modules/react-test-renderer/index.js
+  error not-to-dev-dep: packages/react-components/src/components/utils/filter-tree/__tests__/table-row.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error not-to-dev-dep: packages/react-components/src/components/utils/filter-tree/__tests__/entry-tree.test.tsx → node_modules/react-test-renderer/index.js
+  error not-to-dev-dep: packages/react-components/src/components/utils/filter-tree/__tests__/entry-tree.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error not-to-dev-dep: packages/react-components/src/components/utils/__tests__/time-navigator-component.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error not-to-dev-dep: packages/react-components/src/components/utils/__tests__/time-axis-component.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error not-to-dev-dep: packages/react-components/src/components/__tests__/tooltip-component.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error not-to-dev-dep: packages/react-components/src/components/__tests__/table-renderer-components.test.tsx → node_modules/react-test-renderer/index.js
+  error not-to-dev-dep: packages/react-components/src/components/__tests__/table-renderer-components.test.tsx → node_modules/@testing-library/react/dist/index.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/node/trace-server-url-provider-impl.ts → node_modules/inversify/lib/inversify.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/node/trace-server-connection-status-backend-impl.ts → node_modules/tsp-typescript-client/lib/protocol/rest-client.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/node/trace-server-connection-status-backend-impl.ts → node_modules/inversify/lib/inversify.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/tsp-client-provider-impl.ts → node_modules/tsp-typescript-client/lib/index.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/tsp-client-provider-impl.ts → node_modules/inversify/lib/inversify.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx → node_modules/tsp-typescript-client/lib/models/trace.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx → node_modules/tsp-typescript-client/lib/models/output-descriptor.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx → node_modules/tsp-typescript-client/lib/models/markerset.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx → node_modules/tsp-typescript-client/lib/models/experiment.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer.tsx → node_modules/tsp-typescript-client/lib/index.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/tsp-typescript-client/lib/protocol/tsp-client.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/react-resizable/css/styles.css
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/react-grid-layout/css/styles.css
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/ag-grid-community/dist/styles/ag-theme-balham.css
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/ag-grid-community/dist/styles/ag-theme-balham-dark.css
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts → node_modules/ag-grid-community/dist/styles/ag-grid.css
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-contribution.ts → node_modules/tsp-typescript-client/lib/index.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-contribution.ts → node_modules/@theia/workspace/lib/browser/workspace-service.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-server-connection-status-client-impl.ts → node_modules/inversify/lib/inversify.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/trace-explorer/trace-explorer-sub-widgets/theia-trace-explorer-opened-traces-widget.tsx → node_modules/tsp-typescript-client/lib/models/experiment.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/protocol/tsp-client.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/protocol/tsp-client-response.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/xy.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/trace.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/timegraph.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/table.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/styles.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/response/responses.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/query/query.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/output-descriptor.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/markerset.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/health.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/experiment.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/entry.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/data-tree.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/configuration.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/configuration-source.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/theia-rpc-tsp-proxy.ts → node_modules/tsp-typescript-client/lib/models/annotation.js
+  error no-non-package-json: theia-extensions/viewer-prototype/src/browser/preferences-frontend-contribution.ts → node_modules/inversify/lib/inversify.js
+  error no-non-package-json: packages/react-components/src/components/xy-output-component.tsx → node_modules/d3-scale/src/index.js
+  error no-non-package-json: packages/react-components/src/components/utils/filter-tree/__tests__/table-row.test.tsx → node_modules/@testing-library/dom/dist/index.js
+  error no-non-package-json: packages/react-components/src/components/utils/filter-tree/__tests__/entry-tree.test.tsx → node_modules/@testing-library/dom/dist/index.js
+  error no-non-package-json: packages/react-components/src/components/table-renderer-components.tsx → node_modules/lodash.debounce/index.js
+  error no-non-package-json: packages/react-components/src/components/datatree-output-component.tsx → node_modules/lodash.debounce/index.js
+  error no-non-package-json: packages/react-components/src/components/abstract-xy-output-component.tsx → node_modules/d3-selection/src/index.js
+  error no-non-package-json: packages/react-components/src/components/abstract-xy-output-component.tsx → node_modules/d3-scale/src/index.js
+  error no-non-package-json: packages/react-components/src/components/abstract-xy-output-component.tsx → node_modules/d3-axis/src/index.js
+  error no-non-package-json: packages/react-components/lib/components/xy-output-component.js → node_modules/d3-scale/src/index.js
+  error no-non-package-json: packages/react-components/lib/components/table-renderer-components.js → node_modules/lodash.debounce/index.js
+  error no-non-package-json: packages/react-components/lib/components/datatree-output-component.js → node_modules/lodash.debounce/index.js
+  error no-non-package-json: packages/react-components/lib/components/abstract-xy-output-component.js → node_modules/d3-selection/src/index.js
+  error no-non-package-json: packages/react-components/lib/components/abstract-xy-output-component.js → node_modules/d3-scale/src/index.js
+  error no-non-package-json: packages/react-components/lib/components/abstract-xy-output-component.js → node_modules/d3-axis/src/index.js
+
+✘ 69 dependency violations (62 errors, 7 warnings). 281 modules, 859 dependencies cruised.
+

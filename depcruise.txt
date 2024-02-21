@@ -1,0 +1,26 @@
+# Textual output:
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ > depcruise-text-output.txt
+npx depcruise  theia-extensions/viewer-prototype/src/   --output-type dot | dot -T svg > dependency-graph-theia-trace-extension.svg
+
+# Generate graph:
+
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/  --output-type dot | dot -T svg > dependency-graph.svg
+
+# concentrate only on "vscode-trace-extension" "module"
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --include-only "components"  --output-type dot | dot -T svg > dependency-graph-only-react-components.svg
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --include-only "base"  --output-type dot | dot -T svg > dependency-graph-only-react-base.svg
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --include-only "theia-extensions"  --output-type dot | dot -T svg > dependency-graph-only-viewer-extension.svg
+
+# play with "collapse"
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --collapse 2  --output-type dot | dot -T svg > dependency-graph-collapse2.svg
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --collapse 3  --output-type dot | dot -T svg > dependency-graph-collapse3.svg
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --collapse 4  --output-type dot | dot -T svg > dependency-graph-collapse4.svg
+npx depcruise packages/**/src theia-extensions/viewer-prototype/src/ --collapse 5  --output-type dot | dot -T svg > dependency-graph-collapse5.svg
+
+# graph embedded in HTML:
+npx depcruise -v -T dot packages/**/src theia-extensions/viewer-prototype/src/  | dot -T svg | npx depcruise-wrap-stream-in-html > dependencygraph.html
+
+# Doc:
+https://www.npmjs.com/package/dependency-cruiser
+https://github.com/sverweij/dependency-cruiser/blob/HEAD/doc/output-format.md

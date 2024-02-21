@@ -54,6 +54,7 @@
     "@eclipse-dash/nodejs-wrapper": "^0.0.1",
     "@theia/cli": "1.45.1",
     "concurrently": "^8.2.1",
+    "dependency-cruiser": "^16.0.0",
     "jsonc-parser": "^3.0.0",
     "lerna": "^7.0.0",
     "prettier": "2.8.8",
