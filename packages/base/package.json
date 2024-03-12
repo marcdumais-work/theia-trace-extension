@@ -15,7 +15,8 @@
     "lib",
     "src"
   ],
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "tsp-typescript-client": "next"
   },
   "devDependencies": {

@@ -117,10 +117,14 @@ module.exports = {
       from: {},
       to: {
         moreThanOneDependencyType: true,
+
         // as it's pretty common to have a type import be a type only import 
         // _and_ (e.g.) a devDependency - don't consider type-only dependency
         // types for this rule
-        dependencyTypesNot: ["type-only"]
+        dependencyTypesNot: [
+          "type-only", 
+          "npm-peer" // peer depoendencies not considered duplicates
+        ]
       }
     },
 
@@ -149,7 +153,7 @@ module.exports = {
         'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
       from: {
         path: '^(packages)',
-        pathNot: '[.](spec|test)[.](js|mjs|cjs|ts|ls|coffee|litcoffee|coffee[.]md)$'
+        pathNot: '[.](spec|test)[.](js|mjs|cjs|ts|tsx|ls|coffee|litcoffee|coffee[.]md)$'
       },
       to: {
         dependencyTypes: [
@@ -192,9 +196,33 @@ module.exports = {
       to: {
         dependencyTypes: [
           'npm-peer'
+        ],
+        pathNot: [
+          // exclude legit peer dependencies
+          "node_modules/react/",
+          "node_modules/react-dom/",
+          "node_modules/@fortawesome/react-fontawesome",
+          "node_modules/@fortawesome/free-solid-svg-icons",
+          "node_modules/tsp-typescript-client"
         ]
       }
-    }
+    },
+    {
+      "name": "no-modules-unreachable-from-anywhere",
+      "severity": "error",
+      "from": {
+      },
+      "to": { 
+        "reachable": false,
+        pathNot: [
+          // Theia frontend/backend modules are "reached" by the Theia framework, not from this repo
+          "theia-extensions/viewer-prototype/src/node/trace-server/trace-server-module.ts",
+          "theia-extensions/viewer-prototype/src/electron-node/trace-server/electron-trace-server-module.ts",
+          "theia-extensions/viewer-prototype/src/node/viewer-prototype-backend-module.ts",
+          "theia-extensions/viewer-prototype/src/browser/trace-viewer/trace-viewer-frontend-module.ts"
+        ]
+      }
+    },
   ],
   options: {
 
@@ -269,7 +297,7 @@ module.exports = {
        defaults to './tsconfig.json'.
      */
     tsConfig: {
-      fileName: 'tsconfig.json'
+      fileName: './tsconfig.json'
     },
 
     /* Webpack configuration to use to get resolve options from.
