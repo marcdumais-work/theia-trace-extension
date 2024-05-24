@@ -13,7 +13,7 @@ import { ItemPropertiesSignalPayload } from './item-properties-signal-payload';
 export declare interface SignalManager {
     fireTraceOpenedSignal(trace: Trace): void;
     fireTraceDeletedSignal(trace: Trace): void;
-    fireExperimentExperimentSignal(experiment: Experiment): void;
+    fireExperimentOpenedSignal(experiment: Experiment): void;
     fireExperimentClosedSignal(experiment: Experiment): void;
     fireExperimentDeletedSignal(experiment: Experiment): void;
     fireExperimentSelectedSignal(experiment: Experiment | undefined): void;
@@ -89,6 +89,85 @@ export const Signals = {
 };
 
 export class SignalManager extends EventEmitter implements SignalManager {
+    private managerId: string;
+    private listenerRegisterersPerEvent = new Map<string, string[]>();
+    private currentDepth;
+
+    constructor() {
+        super();
+        this.managerId = getNonce();
+        this.currentDepth = 0;
+        console.log(`*** Creation of SignalManager, id: ${this.managerId}`);
+    }
+
+    getId(): string {
+        return this.managerId;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    emit(event: string | symbol, ...args: any[]): boolean {
+        let expName = 'n/a';
+        if (args[0] && args[0].name) {
+            expName = args[0].name;
+        }
+
+        const ev = event.toString();
+        const listeners = this.listeners(event);
+        const callers = this.getEventListenerRegisterers(ev);
+
+        this.currentDepth++;
+        if (this.currentDepth > 1) {
+            this.getCaller();
+        }
+        console.log(`=> [calling listeners] SignalManager[${this.managerId}, depth: ${this.currentDepth}]: Firing Event: '${ev}', trace/exp: ${expName} ` +
+            `. Will call ${listeners.length} listener(s)`);
+
+        listeners.forEach((listener, index) => {
+            const caller = (callers && callers[index]) ? callers[index] : '<unknown>';
+            console.log(`   -> [calling listener] - [listener idx=${index}/${listeners.length - 1}] SignalManager[${this.managerId}]:` +
+              `Calling listener [name: ${caller}], event: '${ev}' (trace/exp: ${expName})`);
+            listener(...args);
+          });
+
+        this.currentDepth--;
+        return listeners.length > 0;
+        // return super.emit(event, ...args, this.managerId, seq);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+    on(event: string | symbol, listener: (...args: any[]) => void): this {
+        const listenerIndex = this.listeners(event).length;
+        const eventName = event.toString();
+        const caller = this.getCaller();
+        const listenerStr = listener.toString().split('=>')[1];
+        // console.log(`******************** listener.toString(): ${listenerStr}`);
+        this.saveEventListenerRegisterer(eventName, listenerIndex, caller);
+
+        console.log(`-> [new listener] SignalManager[${this.managerId}]#on(): Registering Listener[event='${eventName}', idx=${listenerIndex}] - caller: ${caller}`);
+        return super.on(event, listener);
+    }
+
+    private saveEventListenerRegisterer(event: string, index: number, caller: string) {
+        let listenerCallers: string[] | undefined;
+        if (index === 0) {
+            listenerCallers = [];
+        } else {
+            listenerCallers = this.listenerRegisterersPerEvent.get(event);
+        }
+        if (listenerCallers) {
+            listenerCallers.push(caller);
+            this.listenerRegisterersPerEvent.set(event, listenerCallers);
+        }
+    }
+
+    private getEventListenerRegisterers(event: string): string[] | undefined {
+        const callers = this.listenerRegisterersPerEvent.get(event);
+        if (callers) {
+            return callers;
+        }
+        return;
+    }
+
     fireTraceOpenedSignal(trace: Trace): void {
         this.emit(Signals.TRACE_OPENED, trace);
     }
@@ -194,7 +273,51 @@ export class SignalManager extends EventEmitter implements SignalManager {
     fireContextMenuItemClicked(payload: ContextMenuItemClickedSignalPayload): void {
         this.emit(Signals.CONTEXT_MENU_ITEM_CLICKED, payload);
     }
+
+    // hacky way to figure-out who registered a listener
+    private getCaller(): string {
+        const stackTrace = new Error().stack?.split('\n');
+        if (stackTrace) {
+            const entry = stackTrace[3].trim().split(' ');
+            let inConstructor = false;
+            const packFile = detectPack(entry);
+            for (let i = 0; i < entry.length; i++ ) {
+                if (entry[i] === 'at') {
+                    continue;
+                } else if (entry[i] === 'new') {
+                    inConstructor = true;
+                    continue;
+                }
+                entry[i] = inConstructor ? '(constructor) ' + entry[i] : entry[i];
+                return packFile ? entry[i] + ` (packfile: ${packFile})` : entry[i];
+            }
+        }
+        return '<???>';
+    }
 }
+
+function detectPack(stackFrame: string[]) {
+    for (let i = 0; i< stackFrame.length; i++) {
+        if (stackFrame[i].includes('/pack/')) {
+            return stackFrame[i].substring(stackFrame[i].indexOf('/pack/'));
+        }
+    }
+    return undefined;
+}
+
+function getNonce() {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 8; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+}
+
+// function getInitialSeq() {
+//     // Return a nice round number
+//     return (Math.round(Math.random() * 1000) * 1000);
+// }
 
 let instance: SignalManager = new SignalManager();
 
