@@ -120,45 +120,45 @@ describe('<TableOutputComponent />', () => {
 
     const mockOnFilterChange = jest.fn();
     const mockOnClickNext = jest.fn<() => Promise<boolean>>(() => Promise.resolve(true));
-    const mockOnClickPrevious = jest.fn<() => Promise<boolean>>(() => Promise.resolve(true));
-    const mockParentilterInstance = jest.fn();
-    const mockCurrentParentModel = jest.fn();
-    const mockFilterChangedCallback = jest.fn();
-    const mockFilterModifiedCallback = jest.fn();
-    const mockValueGetter = jest.fn();
+    // const mockOnClickPrevious = jest.fn<() => Promise<boolean>>(() => Promise.resolve(true));
+    // const mockParentilterInstance = jest.fn();
+    // const mockCurrentParentModel = jest.fn();
+    // const mockFilterChangedCallback = jest.fn();
+    // const mockFilterModifiedCallback = jest.fn();
+    // const mockValueGetter = jest.fn();
     const mockGetValue = jest.fn();
     const mockDoesRowPassOtherFilter = jest.fn((rowNode: RowNode) => true) as jest.MockInstance<boolean, [any]> &
         ((rowNode: any) => boolean);
-    const mockShowParentFilter = jest.fn();
+    // const mockShowParentFilter = jest.fn();
     // const mockColumn = jest.fn();
     // const mockGridApi = jest.fn();
 
     test('Empty search filter renderer', () => {
         const searchFilter = create(
             <SearchFilterRenderer
-                colName={'jest Test'}
-                onFilterChange={mockOnFilterChange}
-                onclickNext={mockOnClickNext}
-                onclickPrevious={mockOnClickPrevious}
+                // colName={'jest Test'}
+                // onFilterChange={mockOnFilterChange}
+                // onclickNext={mockOnClickNext}
+                // onclickPrevious={mockOnClickPrevious}
                 // column = {mockColumn as unknown as jest.Mocked<Column<any>>}
                 filterParams={{
                     // api: mockGridApi as unknown as jest.Mocked<GridApi<any>>,
                     // column: mockColumn as unknown as jest.Mocked<Column<any>>,
-                    colDef: {} as ColDef,
-                    rowModel: '' as unknown as IRowModel,
-                    filterChangedCallback: mockFilterChangedCallback,
-                    filterModifiedCallback: mockFilterModifiedCallback,
-                    valueGetter: mockValueGetter,
+                    // colDef: {} as ColDef,
+                    // rowModel: '' as unknown as IRowModel,
+                    // filterChangedCallback: mockFilterChangedCallback,
+                    // filterModifiedCallback: mockFilterModifiedCallback,
+                    // valueGetter: mockValueGetter,
                     // @ts-ignore
                     getValue: mockGetValue,
-                    doesRowPassOtherFilter: mockDoesRowPassOtherFilter,
-                    context: ''
+                    // doesRowPassOtherFilter: mockDoesRowPassOtherFilter,
+                    // context: ''
                 }}
-                currentParentModel={mockCurrentParentModel}
-                parentFilterInstance={mockParentilterInstance}
-                suppressFilterButton={false}
-                showParentFilter={mockShowParentFilter}
-                context={''}
+                // currentParentModel={mockCurrentParentModel}
+                // parentFilterInstance={mockParentilterInstance}
+                // suppressFilterButton={false}
+                // showParentFilter={mockShowParentFilter}
+                // context={''}
                 filterModel={new Map<string, string>()}
             />
         ).toJSON();
@@ -171,24 +171,24 @@ describe('<TableOutputComponent />', () => {
                 colName={'jest Test'}
                 onFilterChange={mockOnFilterChange}
                 onclickNext={mockOnClickNext}
-                onclickPrevious={mockOnClickPrevious}
+                // onclickPrevious={mockOnClickPrevious}
                 filterParams={{
                     // api: mockGridApi as unknown as jest.Mocked<GridApi<any>>,
-                    colDef: {} as ColDef,
-                    rowModel: '' as unknown as IRowModel,
-                    filterChangedCallback: mockFilterChangedCallback,
-                    filterModifiedCallback: mockFilterModifiedCallback,
-                    valueGetter: mockValueGetter,
+                    // colDef: {} as ColDef,
+                    // rowModel: '' as unknown as IRowModel,
+                    // filterChangedCallback: mockFilterChangedCallback,
+                    // filterModifiedCallback: mockFilterModifiedCallback,
+                    // valueGetter: mockValueGetter,
                     // @ts-ignore
                     getValue: mockGetValue,
                     doesRowPassOtherFilter: mockDoesRowPassOtherFilter,
-                    context: ''
+                    // context: ''
                 }}
-                currentParentModel={mockCurrentParentModel}
-                parentFilterInstance={mockParentilterInstance}
-                suppressFilterButton={false}
-                showParentFilter={mockShowParentFilter}
-                context={''}
+                // currentParentModel={mockCurrentParentModel}
+                // parentFilterInstance={mockParentilterInstance}
+                // suppressFilterButton={false}
+                // showParentFilter={mockShowParentFilter}
+                // context={''}
                 filterModel={new Map<string, string>()}
             />
         );
@@ -204,31 +204,31 @@ describe('<TableOutputComponent />', () => {
 
     const cellRendererProps: any = {
         value: 'test cell',
-        valueFormatted: 'test cell',
-        getValue: function () {
-            return 'test cell';
-        },
-        setValue: function (val: any): void {
-            const value = val;
-        },
-        formatValue: function (value: any) {
-            return value;
-        },
-        data: {},
-        node: {} as RowNode,
+        // valueFormatted: 'test cell',
+        // getValue: function () {
+        //     return 'test cell';
+        // },
+        // setValue: function (val: any): void {
+        //     const value = val;
+        // },
+        // formatValue: function (value: any) {
+        //     return value;
+        // },
+        // data: {},
+        // node: {} as RowNode,
         colDef: {} as ColDef,
         // column: mockColumn,
-        rowIndex: 0,
+        // rowIndex: 0,
         // api: mockGridApi,
         // columnApi: new ColumnApi(),
-        context: '',
-        refreshCell: () => {},
-        $scope: '',
-        eGridCell: document.createElement('div'),
-        eParentOfValue: document.createElement('div'),
-        addRenderedRowListener: function (eventType: string, listener: Function): void {
-            throw new Error('Function not implemented.');
-        },
+        // context: '',
+        // refreshCell: () => {},
+        // $scope: '',
+        // eGridCell: document.createElement('div'),
+        // eParentOfValue: document.createElement('div'),
+        // addRenderedRowListener: function (eventType: string, listener: Function): void {
+        //     throw new Error('Function not implemented.');
+        // },
         searchResultsColor: '#FFFF00',
         filterModel: new Map<string, string>()
     };
