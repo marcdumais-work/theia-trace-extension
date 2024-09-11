@@ -125,86 +125,13 @@ describe('<TableOutputComponent />', () => {
     const mockCurrentParentModel = jest.fn();
     const mockFilterChangedCallback = jest.fn();
     const mockFilterModifiedCallback = jest.fn();
-
-    const mockValueGetter = jest.fn((params: ValueGetterParams<any, any>) => {
-        return 'mockedValue';
-    });
-    const mockGetValue = jest.fn((node: IRowNode<any>, column?: string | ColDef<any, any> | Column<any>) => {
-        return 'mockedCellValue';
-    });
+    const mockValueGetter = jest.fn();
+    const mockGetValue = jest.fn();
     const mockDoesRowPassOtherFilter = jest.fn((rowNode: RowNode) => true) as jest.MockInstance<boolean, [any]> &
         ((rowNode: any) => boolean);
     const mockShowParentFilter = jest.fn();
-    const mockColumn: Partial<jest.Mocked<Column<any>>> = {
-        getColId: jest.fn(() => 'mockedColId') as jest.MockInstance<string, []> & (() => string), 
-        getUserProvidedColDef: jest.fn(() => null) as jest.MockInstance<null, []> & (() => null),
-        isPrimary: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        isFilterAllowed: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        isRowGroupDisplayed: jest.fn((colId: string) => false) as jest.MockInstance<boolean, [string]> & ((colId: string) => boolean),
-        // isTooltipEnabled: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // addEventListener: jest.fn((eventType: any, userListener: any) => {}) as jest.MockInstance<void, [any, any]> & ((eventType: any, userListener: any) => void),
-        // removeEventListener: jest.fn((eventType: any, userListener: any) => {}) as jest.MockInstance<void, [any, any]> & ((eventType: any, userListener: any) => void),
-        // isSuppressNavigable: jest.fn((rowNode: RowNode) => false) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isCellEditable: jest.fn((rowNode: RowNode) => true) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isSuppressFillHandle: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAutoHeight: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAutoHeaderHeight: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isRowDrag: jest.fn((rowNode: RowNode) => false) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isDndSource: jest.fn((rowNode: RowNode) => false) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isCellCheckboxSelection: jest.fn((rowNode: RowNode) => false) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isSuppressPaste: jest.fn((rowNode: RowNode) => false) as jest.MockInstance<boolean, [any]> & ((rowNode: any) => boolean),
-        // isMenuVisible: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // getSort: jest.fn(() => 'asc') as jest.MockInstance<'asc' | 'desc' | undefined, []> & (() => 'asc' | 'desc' | undefined),
-        // isSortable: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isSortAscending: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isSortDescending: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isSortNone: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isSorting: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // getSortIndex: jest.fn(() => null) as jest.MockInstance<number | null | undefined, []> & (() => number | null | undefined),
-        // getAggFunc: jest.fn(() => null) as jest.MockInstance<string | undefined | null, []> & (() => string | undefined | null),
-        // getRight: jest.fn(() => 100) as jest.MockInstance<number, []> & (() => number),
-        // isFilterActive: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isHovered: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isFirstRightPinned: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isLastLeftPinned: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isPinned: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isPinnedLeft: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isPinnedRight: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isSpanHeaderHeight: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // getColumnGroupPaddingInfo: jest.fn(() => ({ numberOfParents: 1, isSpanningTotal: true })) as jest.MockInstance<{ numberOfParents: number; isSpanningTotal: boolean }, []> & (() => { numberOfParents: number; isSpanningTotal: boolean }),
-        // getColDef: jest.fn(() => ({}) as any) as jest.MockInstance<any, []> & (() => any),
-        // getAutoHeaderHeight: jest.fn(() => null) as jest.MockInstance<number | null, []> & (() => number | null),
-        // getColSpan: jest.fn((rowNode: RowNode) => 1) as jest.MockInstance<number, [any]> & ((rowNode: any) => number),
-        // getRowSpan: jest.fn((rowNode: RowNode) => 1) as jest.MockInstance<number, [any]> & ((rowNode: any) => number),
-        // isGreaterThanMax: jest.fn((wifth: number) => false) as jest.MockInstance<boolean, [number]> & ((width: number) => boolean),
-        // getMaxWidth: jest.fn(() => 100) as jest.MockInstance<number, []> & (() => number),
-        // getFlex: jest.fn(() => 1) as jest.MockInstance<number, []> & (() => number),
-        // isRowGroupActive: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isPivotActive: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAnyFunctionActive: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAnyFunctionAllowed: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isValueActive: jest.fn(() => false) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAllowPivot: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAllowValue: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        // isAllowRowGroup: jest.fn(() => true) as jest.MockInstance<boolean, []> & (() => boolean),
-        isColumn: true
-    };
-
-    const mockGridApi: Partial<jest.Mocked<GridApi>> = {
-        getSelectedRows: jest.fn(() => []) as jest.MockInstance<any[], []> & (() => any[]),
-        getDisplayedRowCount: jest.fn(() => 100) as jest.MockInstance<number, []> & (() => number),
-        getDisplayedRowAtIndex: jest.fn(index => ({ id: index })) as jest.MockInstance<any, [number]> & ((index: number) => any),
-        getRowNode: jest.fn(id => ({ id })) as jest.MockInstance<any, [string]> & ((id: string) => any),
-        refreshCells: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-        sizeColumnsToFit: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-        redrawRows: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-        selectAll: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-        deselectAll: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-        setFilterModel: jest.fn(filterModel => {}) as jest.MockInstance<void, [any]> & ((filterModel: any) => void),
-        getFilterModel: jest.fn(() => ({ filter: 'test' })) as jest.MockInstance<any, []> & (() => any),
-        exportDataAsCsv: jest.fn(() => {}) as jest.MockInstance<void, []> & (() => void),
-    };
-    
+    // const mockColumn = jest.fn();
+    // const mockGridApi = jest.fn();
 
     test('Empty search filter renderer', () => {
         const searchFilter = create(
@@ -213,11 +140,10 @@ describe('<TableOutputComponent />', () => {
                 onFilterChange={mockOnFilterChange}
                 onclickNext={mockOnClickNext}
                 onclickPrevious={mockOnClickPrevious}
-                // column={new Column({} as ColDef, {} as ColDef, 'jest Test', true)}
-                column = {mockColumn as jest.Mocked<Column<any>>}
+                // column = {mockColumn as unknown as jest.Mocked<Column<any>>}
                 filterParams={{
-                    api: mockGridApi as jest.Mocked<GridApi<any>>,
-                    column: mockColumn as jest.Mocked<Column<any>>,
+                    // api: mockGridApi as unknown as jest.Mocked<GridApi<any>>,
+                    // column: mockColumn as unknown as jest.Mocked<Column<any>>,
                     colDef: {} as ColDef,
                     rowModel: '' as unknown as IRowModel,
                     filterChangedCallback: mockFilterChangedCallback,
@@ -231,14 +157,11 @@ describe('<TableOutputComponent />', () => {
                 currentParentModel={mockCurrentParentModel}
                 parentFilterInstance={mockParentilterInstance}
                 suppressFilterButton={false}
-                // api = {mockGridApi as jest.Mocked<GridApi<any>>}
                 showParentFilter={mockShowParentFilter}
                 context={''}
                 filterModel={new Map<string, string>()}
             />
         ).toJSON();
-        // console.log(JSON.stringify(searchFilter));
-        // JSON.stringify(searchFilter)
         expect(searchFilter).toMatchSnapshot();
     });
 
@@ -249,10 +172,8 @@ describe('<TableOutputComponent />', () => {
                 onFilterChange={mockOnFilterChange}
                 onclickNext={mockOnClickNext}
                 onclickPrevious={mockOnClickPrevious}
-                // column = {mockColumn as jest.Mocked<Column<any>>}
                 filterParams={{
-                    api: mockGridApi as jest.Mocked<GridApi<any>>,
-                    // column: mockColumn as jest.Mocked<Column<any>>,
+                    // api: mockGridApi as unknown as jest.Mocked<GridApi<any>>,
                     colDef: {} as ColDef,
                     rowModel: '' as unknown as IRowModel,
                     filterChangedCallback: mockFilterChangedCallback,
@@ -266,7 +187,6 @@ describe('<TableOutputComponent />', () => {
                 currentParentModel={mockCurrentParentModel}
                 parentFilterInstance={mockParentilterInstance}
                 suppressFilterButton={false}
-                // api = {mockGridApi as jest.Mocked<GridApi<any>>}
                 showParentFilter={mockShowParentFilter}
                 context={''}
                 filterModel={new Map<string, string>()}
@@ -297,9 +217,9 @@ describe('<TableOutputComponent />', () => {
         data: {},
         node: {} as RowNode,
         colDef: {} as ColDef,
-        column: mockColumn,
+        // column: mockColumn,
         rowIndex: 0,
-        api: mockGridApi,
+        // api: mockGridApi,
         // columnApi: new ColumnApi(),
         context: '',
         refreshCell: () => {},
