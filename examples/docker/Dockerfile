@@ -11,11 +11,12 @@ RUN apt-get update && apt-get install -y \
     libxkbfile-dev
 
 # Build the browser theia-trace-extension application
-COPY example-package.json /app/tte/package.json
-COPY webpack.config.js /app/tte/webpack.config.js
+COPY package.json /app/tte/
+COPY webpack.config.js /app/tte/
+COPY yarn.lock  /app/tte/
 WORKDIR /app/tte/
 RUN yarn && \
-    npx theia build --app-target=\"browser\" --mode production && \
+    yarn build:prod && \
     yarn autoclean --init && \
     echo *.ts >> .yarnclean && \
     echo *.ts.map >> .yarnclean && \
