@@ -17,6 +17,11 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [18]
+        params:
+          - name: "theia-ext"
+            folder: "theia-extension"
+          - name: "vscode-ext"
+            folder: "vscode-extension"
 
     steps:
     - uses: actions/checkout@v4
@@ -26,23 +31,24 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build example-docker
+    - name: Build example app
       uses: nick-invision/retry@v3
       with:
         timeout_minutes: 10
         retry_wait_seconds: 15
-        max_attempts: 3
+        max_attempts: 1
         retry_on: error
         command: |
           cd examples/docker
-          docker build -t tte .
+          docker build . --build-arg APP_SUBFOLDER=${{ matrix.params.folder }} -t tte-${{ matrix.params.name }} -f ${{ matrix.params.folder }}/Dockerfile 
         on_retry_command: cd ../..
 
     - name: Run docker image
       run: |
-        docker run --init -d -p 0.0.0.0:3000:4000 tte
+        docker run --init -d -p 0.0.0.0:3000:4000 tte-${{ matrix.params.name }}
 
     - name: Test trace viewer appliance
       run: |
         yarn --ignore-scripts
         yarn test:browser-app
+

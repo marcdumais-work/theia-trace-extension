@@ -27,6 +27,10 @@
     "@theia/cli": "1.45.1"
   },
   "scripts": {
+    "build": "npx theia build --app-target=\"browser\" --mode development",
+    "build:prod": "npx theia build --app-target=\"browser\" --mode production",
+    "start": "theia start --plugins=local-dir:plugins",
+    "watch": "theia build --watch",
     "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false --ignore-errors"
   },
   "engines": {

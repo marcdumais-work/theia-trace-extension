@@ -1,43 +1,26 @@
 {
   "private": true,
-  "name": "docker-theia-trace-example",
+  "name": "docker-examples",
   "version": "0.1.0",
-  "theia": {
-    "target": "browser",
-    "frontend": {
-      "config": {
-        "applicationName": "Theia-Trace Example Application",
-        "preferences": {
-          "editor.autoSave": "on",
-          "trace-viewer.port": 8080
-        }
-      }
-    }
-  },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.14",
-    "@theia/core": "1.45.1",
-    "@theia/navigator": "1.45.1",
-    "@theia/preferences": "1.45.1",
-    "theia-traceviewer": "0.2.0-next.20240229144356.c22cb2c.0"
+
   },
   "devDependencies": {
-    "@theia/cli": "1.45.1"
+    
   },
   "scripts": {
-    "build": "npx theia build --app-target=\"browser\" --mode development",
-    "build:prod": "npx theia build --app-target=\"browser\" --mode production",
-    "start": "theia start",
-    "watch": "theia build --watch",
-    "clean": "echo 'Docker: Fake clean!!!'"
+    "build": "yarn theiaExt build && yarn vscodeExt build",
+    "build:prod": "yarn theiaExt build:prod && yarn vscodeExt build:prod",
+    "theiaExt": "yarn --cwd theia-extension",
+    "vscodeExt": "yarn --cwd vscode-extension"
   },
   "engines": {
-    "yarn": ">=1.7.0 <2",
-    "node": ">=16 <19"
   },
   "resolutions": {
     "msgpackr": "^1.10.1"
-  }
+  },
+  "workspaces":[
+    "theia-extension",
+    "vscode-extension"
+  ]
 }
