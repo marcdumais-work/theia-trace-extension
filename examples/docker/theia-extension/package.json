@@ -27,8 +27,11 @@
     "@theia/cli": "1.45.1"
   },
   "scripts": {
+    "build": "npx theia build --app-target=\"browser\" --mode development",
+    "build:prod": "npx theia build --app-target=\"browser\" --mode production",
     "start": "theia start",
-    "watch": "theia build --watch"
+    "watch": "theia build --watch",
+    "clean": "echo 'Docker: Fake clean!!!'"
   },
   "engines": {
     "yarn": ">=1.7.0 <2",
