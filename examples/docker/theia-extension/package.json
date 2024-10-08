@@ -31,7 +31,8 @@
     "build:prod": "npx theia build --app-target=\"browser\" --mode production",
     "start": "theia start",
     "watch": "theia build --watch",
-    "clean": "echo 'Docker: Fake clean!!!'"
+    "clean": "echo 'Docker: Fake clean!!!'",
+    "test": "pwd && yarn --cwd ../../../playwright-tests ui-tests"
   },
   "engines": {
     "yarn": ">=1.7.0 <2",

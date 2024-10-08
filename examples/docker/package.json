@@ -11,7 +11,11 @@
     "build": "yarn theiaExt build && yarn vscodeExt build",
     "build:prod": "yarn theiaExt build:prod && yarn vscodeExt build:prod",
     "theiaExt": "yarn --cwd theia-extension",
-    "vscodeExt": "yarn --cwd vscode-extension"
+    "vscodeExt": "yarn --cwd vscode-extension",
+    "build:docker": "yarn build:docker:theia && yarn build:docker:vscode",
+    "build:docker:theia": "docker build --no-cache --network=host . --build-arg APP_SUBFOLDER=theia-extension -t tte-theia-extension -f theia-extension/Dockerfile",
+    "build:docker:vscode": "docker build --no-cache --network=host . --build-arg APP_SUBFOLDER=vscode-extension -t tte-vscode-extension -f vscode-extension/Dockerfile"
+    
   },
   "engines": {
   },

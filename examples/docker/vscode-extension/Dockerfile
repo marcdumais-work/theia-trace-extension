@@ -1,4 +1,4 @@
-FROM node:18.19.1-bookworm-slim as build
+FROM node:18.20.4-bookworm-slim AS build
 ARG APP_SUBFOLDER
 
 RUN apt-get update && apt-get install -y \
@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y \
     libxkbfile1 \
     libsecret-1-0 \
     && rm -rf /var/lib/apt/lists/*
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 WORKDIR /app/tte
 COPY ${APP_SUBFOLDER}/docker-entrypoint.sh /usr/local/bin

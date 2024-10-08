@@ -32,7 +32,8 @@
     "build:prod": "npx theia build --app-target=\"browser\" --mode production",
     "start": "theia start --plugins=local-dir:plugins",
     "watch": "theia build --watch",
-    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false --ignore-errors"
+    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false --ignore-errors",
+    "test": "echo \"TODO: Add tests\" && /bin/true"
   },
   "engines": {
     "yarn": ">=1.7.0 <2",
@@ -41,14 +42,5 @@
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
       "vscode-trace-extension": "https://open-vsx.org/api/eclipse-cdt/vscode-trace-extension/0.2.6/file/eclipse-cdt.vscode-trace-extension-0.2.6.vsix"
-  },
-  "theiaPluginsExcludeIds": [
-    "ms-vscode.js-debug-companion",
-    "vscode.extension-editing",
-    "vscode.git",
-    "vscode.git-ui",
-    "vscode.github",
-    "vscode.github-authentication",
-    "vscode.microsoft-authentication"
-  ]
+  }
 }
