@@ -50,5 +50,7 @@ jobs:
     - name: Test trace viewer appliance
       run: |
         yarn --ignore-scripts
-        yarn test:browser-app
+        # yarn test:browser-app
+        cd examples/docker
+        yarn --cwd ${{ matrix.params.folder }} test
 
