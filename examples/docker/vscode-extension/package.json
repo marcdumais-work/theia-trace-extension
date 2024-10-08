@@ -18,14 +18,14 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.14",
-    "@theia/core": "1.45.1",
-    "@theia/messages": "1.45.1",
-    "@theia/navigator": "1.45.1",
-    "@theia/preferences": "1.45.1",
-    "@theia/plugin-ext-vscode": "1.45.1"
+    "@theia/core": "1.49.1",
+    "@theia/messages": "1.49.1",
+    "@theia/navigator": "1.49.1",
+    "@theia/preferences": "1.49.1",
+    "@theia/plugin-ext-vscode": "1.49.1"
   },
   "devDependencies": {
-    
+    "@theia/cli": "1.49.1"
   },
   "scripts": {
     "build": "npx theia build --app-target=\"browser\" --mode development",
