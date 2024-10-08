@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "docker-examples",
+  "version": "0.1.0",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "@theia/cli": "1.45.1"
+  },
+  "scripts": {
+    "build": "yarn theiaExt build && yarn vscodeExt build",
+    "build:prod": "yarn theiaExt build:prod && yarn vscodeExt build:prod",
+    "theiaExt": "yarn --cwd theia-extension",
+    "vscodeExt": "yarn --cwd vscode-extension"
+  },
+  "engines": {
+  },
+  "resolutions": {
+    "msgpackr": "^1.10.1"
+  },
+  "workspaces":[
+    "theia-extension",
+    "vscode-extension"
+  ]
+}

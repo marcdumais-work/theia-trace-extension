@@ -1,4 +1,5 @@
 FROM node:18.19.1-bookworm-slim as build
+ARG APP_SUBFOLDER
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -11,8 +12,8 @@ RUN apt-get update && apt-get install -y \
     libxkbfile-dev
 
 # Build the browser theia-trace-extension application
-COPY package.json /app/tte/
-COPY webpack.config.js /app/tte/
+COPY ${APP_SUBFOLDER}/package.json /app/tte/
+COPY ${APP_SUBFOLDER}/webpack.config.js /app/tte/
 COPY yarn.lock  /app/tte/
 WORKDIR /app/tte/
 RUN yarn && \
@@ -26,6 +27,7 @@ RUN yarn && \
     du -hs /app/tte
 
 FROM node:18.19.1-bookworm-slim
+ARG APP_SUBFOLDER
 
 COPY --from=build /app/tte /app/tte
 
@@ -37,6 +39,6 @@ RUN apt-get update && apt-get install -y \
 ENV NODE_ENV production
 
 WORKDIR /app/tte
-COPY docker-entrypoint.sh /usr/local/bin
+COPY ${APP_SUBFOLDER}/docker-entrypoint.sh /usr/local/bin
 EXPOSE 4000
 ENTRYPOINT ["docker-entrypoint.sh"]
