@@ -8,6 +8,7 @@
         "tswatch": "tsc -b -w",
         "clean": "lerna run clean",
         "build:examples": "yarn browser build && yarn electron build",
+        "build:docker-app": "yarn docker-app && yarn docker-app build ",
         "start:browser": "yarn browser rebuild && yarn browser start",
         "start:electron": "yarn electron rebuild && yarn electron start",
         "download:sample-traces": "curl -o TraceCompassTutorialTraces.tgz https://raw.githubusercontent.com/tuxology/tracevizlab/master/labs/TraceCompassTutorialTraces.tgz; tar -xf TraceCompassTutorialTraces.tgz",
@@ -29,6 +30,7 @@
         "format:check": "lerna run format:check",
         "browser": "yarn -s --cwd examples/browser",
         "electron": "yarn -s --cwd examples/electron",
+        "docker-app": "yarn -s --cwd examples/docker",
         "license:check": "npx dash-licenses-wrapper  --configFile=./configs/license-check-config.json",
         "license:check:review": "npx dash-licenses-wrapper  --configFile=./configs/license-check-config.json --review"
     },
