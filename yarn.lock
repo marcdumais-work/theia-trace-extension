@@ -7,20 +7,20 @@
   resolved "https://registry.npmjs.org/7zip-bin/-/7zip-bin-5.2.0.tgz#7a03314684dd6572b7dfa89e68ce31d60286854d"
   integrity sha512-ukTPVhqG4jNzMro2qA9HSCSSVJN3aN7tlb+hfqYCt3ER0yWroeA2VR38MNrOHLQ/cVj+DaIMad0kFCtWWowh/A==
 
-"@ag-grid-community/core@32.2.0", "@ag-grid-community/core@^32.0.1":
-  version "32.2.0"
-  resolved "https://registry.npmjs.org/@ag-grid-community/core/-/core-32.2.0.tgz#9379e44b7aa4e03a46d9652ed7bd7e92fdfc41d0"
-  integrity sha512-ng7qhDfF91ecT5TldQsb5lhJ6M1ZhSIB2c1hSSmY0kqQHxn0uAJo6lpjz7SIUqyy4PFupsOoPs98CsW0Dl9dHA==
+"@ag-grid-community/core@32.3.3", "@ag-grid-community/core@^32.0.1":
+  version "32.3.3"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/core/-/core-32.3.3.tgz#632714e885fe26d3e35c6bd94ad7f89fbc53cbc0"
+  integrity sha512-JMr5ahDjjl+pvQbBM1/VrfVFlioCVnMl1PKWc6MC1ENhpXT1+CPQdfhUEUw2VytOulQeQ4eeP0pFKPuBZ5Jn2g==
   dependencies:
-    ag-charts-types "10.2.0"
+    ag-charts-types "10.3.3"
     tslib "^2.3.0"
 
 "@ag-grid-community/infinite-row-model@^32.0.0":
-  version "32.2.0"
-  resolved "https://registry.npmjs.org/@ag-grid-community/infinite-row-model/-/infinite-row-model-32.2.0.tgz#9ca9c1c557e58b5384154164fcff972d679b4005"
-  integrity sha512-q5YWQbJBv8sz4VzyquarBdJOxesSZ+1ThKERhVT84n+AYmywQ7J3r1gD2z9xJeki7Kbd02J/quYMzWE3AvaB3g==
+  version "32.3.3"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/infinite-row-model/-/infinite-row-model-32.3.3.tgz#c8e24413d3b429464d5abaee6ba6a3ecef3b3df5"
+  integrity sha512-q1R8gW/JhyjctiMzQcQWed0at8JHHCckoeT1XuD3KSEEKk1+x6fiRLbio05maHkIKYpSaXLLr2w7xEhSgiyk6g==
   dependencies:
-    "@ag-grid-community/core" "32.2.0"
+    "@ag-grid-community/core" "32.3.3"
     tslib "^2.3.0"
 
 "@ag-grid-community/react@^32.0.0":
@@ -4362,10 +4362,10 @@ add-stream@^1.0.0:
   resolved "https://registry.npmjs.org/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
   integrity sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==
 
-ag-charts-types@10.2.0:
-  version "10.2.0"
-  resolved "https://registry.npmjs.org/ag-charts-types/-/ag-charts-types-10.2.0.tgz#9af7e333d196d02da1635b19b2649a9b2d06241a"
-  integrity sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==
+ag-charts-types@10.3.3:
+  version "10.3.3"
+  resolved "https://registry.yarnpkg.com/ag-charts-types/-/ag-charts-types-10.3.3.tgz#042c747f1247af827c29ccfdd0890d7b9adcaae9"
+  integrity sha512-8rmyquaTkwfP4Lzei/W/cbkq9wwEl8+grIo3z97mtxrMIXh9sHJK1oJipd/u08MmBZrca5Jjtn5F1+UNPu/4fQ==
 
 agent-base@6, agent-base@^6.0.2:
   version "6.0.2"
@@ -10690,7 +10690,7 @@ mute-stream@^1.0.0, mute-stream@~1.0.0:
 
 nan@2.18.0, nan@^2.14.0, nan@^2.17.0:
   version "2.18.0"
-  resolved "https://registry.npmjs.org/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
   integrity sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==
 
 nano@^10.1.3:
