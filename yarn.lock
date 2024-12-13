@@ -30,10 +30,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@ag-grid-community/styles@^32.0.0":
-  version "32.2.0"
-  resolved "https://registry.npmjs.org/@ag-grid-community/styles/-/styles-32.2.0.tgz#979ffb67d6fdad0183c0f597db529657f3528ba0"
-  integrity sha512-OYk8PRqv3WEiYGTamQ4G85hjI7gjmQzY51MtN2nuqlEqC/+lAeRavgPpQ3QCS2hDyRj0pjdaDgBMVMMz6SpDuw==
+"@ag-grid-community/styles@^33.0.2":
+  version "33.0.2"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/styles/-/styles-33.0.2.tgz#d30bf0091bd6bfa2b43af3f6c9da5b74a8e949fb"
+  integrity sha512-oMUdolN8l34k6ubLQm3AiO53SqB59YbPDSanVDrwiN7xIq5NGczVQ2Yks032XWqa0bMYkLU9L9opCBSCwZdKsg==
 
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
@@ -10690,7 +10690,7 @@ mute-stream@^1.0.0, mute-stream@~1.0.0:
 
 nan@2.18.0, nan@^2.14.0, nan@^2.17.0:
   version "2.18.0"
-  resolved "https://registry.npmjs.org/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
   integrity sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==
 
 nano@^10.1.3:
