@@ -10,4 +10,4 @@ updates:
       interval: "weekly"
 
 # do we need to explicitly add the "yarn" oackage ecodydtem, 
-# that was already covered auto-magically by dependabot? 
+# that was already covered auto-magically by dependabot?  
